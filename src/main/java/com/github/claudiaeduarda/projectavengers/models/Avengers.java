@@ -1,18 +1,21 @@
 package com.github.claudiaeduarda.projectavengers.models;
 
-public class Avengers {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	private Integer id;
+@Entity
+public class Avengers {
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private long codigo;
+	
 	private String nome;
 	private String codinome;
 	private String filme;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public String getNome() {
 		return nome;
 	}
