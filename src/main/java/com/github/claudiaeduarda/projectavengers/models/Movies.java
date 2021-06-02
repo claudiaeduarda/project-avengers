@@ -1,13 +1,17 @@
 package com.github.claudiaeduarda.projectavengers.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="TB_MOVIES")
 public class Movies implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -15,10 +19,18 @@ public class Movies implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long codigo;
-	
 	private String nome;
 	private String ano;
 	
+	@OneToMany
+	private List<Cadastrados> cadastrados;
+	
+	public long getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
+	}
 	public String nome() {
 		return nome;
 	}
