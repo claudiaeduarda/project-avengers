@@ -52,7 +52,7 @@ public class AvengersTowerController {
 		return "redirect:/cadastroAvengersTowerMovies";
 	}
 	
-	@RequestMapping("/avengers")
+	@RequestMapping("/movies")
 	public ModelAndView listaMovies() {
 		ModelAndView mv = new ModelAndView("index");
 		Iterable<Movies> movies = mtr.findAll();

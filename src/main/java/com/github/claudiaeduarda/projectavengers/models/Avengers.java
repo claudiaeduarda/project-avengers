@@ -23,15 +23,15 @@ public class Avengers implements Serializable {
 	private String codinome;
 	private String filme;
 	
+	@OneToMany
+	private List<Cadastrados> cadastrados;
+	
 	public long getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
-	@OneToMany
-	private List<Cadastrados> cadastrados;
-	
 	public String getNome() {
 		return nome;
 	}

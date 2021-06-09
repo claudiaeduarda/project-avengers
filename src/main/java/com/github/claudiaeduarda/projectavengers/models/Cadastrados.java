@@ -1,11 +1,13 @@
 package com.github.claudiaeduarda.projectavengers.models;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Cadastrados {
 
+	@Id
 	private String id;
 	private String nomeAvenger;
 	private String nomeFilme;
