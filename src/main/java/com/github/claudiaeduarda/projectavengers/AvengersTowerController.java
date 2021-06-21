@@ -2,8 +2,11 @@ package com.github.claudiaeduarda.projectavengers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.claudiaeduarda.projectavengers.models.Avengers;
@@ -18,17 +21,27 @@ public class AvengersTowerController {
 	private AvengersTowerRepository atr;
 	private MoviesTowerRepository mtr;
 
-	@RequestMapping(value="/cadastroAvengersTower", method=RequestMethod.GET)
-	public String form() {
+	@GetMapping(value="/cadastroAvengersTower")
+	public String getString() {
 		return "avengerstower/formAvengersTower";
 	}
 	
-	@RequestMapping(value="/cadastroAvengersTower", method=RequestMethod.POST)
-	public String form(Avengers avengers) {
+	@PostMapping(value="/cadastroAvengersTower")
+	public String postString(Avengers avengers) {
 		
 		atr.save(avengers);
 		
 		return "redirect:/cadastroAvengersTower";
+	}
+	
+	@PutMapping(value="/cadastroAvengersTower")
+	public String putString() {
+		return "avengerstower/formAvengersTower";
+	}
+	
+	@DeleteMapping(value="/cadastroAvengersTower")
+	public String deleteString() {
+		return "avengerstower/formAvengersTower";
 	}
 	
 	@RequestMapping("/avengers")
@@ -39,17 +52,27 @@ public class AvengersTowerController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/cadastroAvengersTowerMovies", method=RequestMethod.GET)
-	public String form1() {
-		return "avengerstower/formAvengersTowerMovies";
+	@GetMapping(value="/cadastroAvengersTowerMovies")
+	public String getString1() {
+		return "moviestower/formAvengersTowerMovies";
 	}
 	
-	@RequestMapping(value="/cadastroAvengersTowerMovies", method=RequestMethod.POST)
-	public String form(Movies movies) {
+	@PostMapping(value="/cadastroAvengersTowerMovies")
+	public String postString(Movies movies) {
 		
 		mtr.save(movies);
 		
 		return "redirect:/cadastroAvengersTowerMovies";
+	}
+	
+	@PutMapping(value="/cadastroAvengersTowerMovies")
+	public String putString1() {
+		return "moviestower/formAvengersTowerMovies";
+	}
+	
+	@DeleteMapping(value="/cadastroAvengersTowerMovies")
+	public String deleteString1() {
+		return "moviestower/formAvengersTowerMovies";
 	}
 	
 	@RequestMapping("/movies")
