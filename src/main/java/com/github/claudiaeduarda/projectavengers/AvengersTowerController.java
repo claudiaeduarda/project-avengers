@@ -1,5 +1,7 @@
 package com.github.claudiaeduarda.projectavengers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.claudiaeduarda.projectavengers.models.Avengers;
@@ -24,6 +27,23 @@ public class AvengersTowerController {
 	@GetMapping(value="/cadastroAvengersTower")
 	public String getString() {
 		return "avengerstower/formAvengersTower";
+	}
+	
+	@GetMapping("/AvengersTowerRepository")
+    public List<Avengers> Avengers() {
+		return atr.findAll();
+	}
+	
+	@GetMapping("/AvengersTowerRepository")
+	public Avengers getAvengers(Long id){
+        return atr.getById(id);
+	}
+	
+	@ResponseBody
+	@GetMapping
+	public long countAvengers() {
+		long count = atr.getCountOfEntities();
+		return count;
 	}
 	
 	@PostMapping(value="/cadastroAvengersTower")
@@ -55,6 +75,23 @@ public class AvengersTowerController {
 	@GetMapping(value="/cadastroAvengersTowerMovies")
 	public String getString1() {
 		return "moviestower/formAvengersTowerMovies";
+	}
+	
+	@GetMapping("/MoviesTowerRepository")
+    public List <Movies> Movies() {
+		return mtr.findAll();
+	}
+	
+	@GetMapping("/MoviesTowerRepository")
+	public Movies getMovies(Long id){
+        return mtr.getById(id);
+    }
+	
+	@ResponseBody
+	@GetMapping
+	public long countMovies() {
+		long count = mtr.getCountOfEntities();
+		return count;
 	}
 	
 	@PostMapping(value="/cadastroAvengersTowerMovies")

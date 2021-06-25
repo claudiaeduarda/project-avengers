@@ -47,6 +47,9 @@ public class Cadastrados {
 		this.movies = movies;
 	}
 	
-	
+	@Override
+    public String toString() {
+        return "Cadastrados [id=" + id + ", Nome do Avenger=" + nomeAvenger + ", Nome do Filme=" + nomeFilme + "]";
+    }
 }
 

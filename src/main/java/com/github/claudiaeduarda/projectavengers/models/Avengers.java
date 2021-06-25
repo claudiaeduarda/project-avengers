@@ -18,7 +18,7 @@ public class Avengers implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private long codigo;
+	private long id;
 	private String nome;
 	private String codinome;
 	private String filme;
@@ -26,11 +26,11 @@ public class Avengers implements Serializable {
 	@OneToMany
 	private List<Cadastrados> cadastrados;
 	
-	public long getCodigo() {
-		return codigo;
+	public long getId() {
+		return id;
 	}
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;

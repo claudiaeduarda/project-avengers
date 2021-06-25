@@ -6,5 +6,7 @@ import com.github.claudiaeduarda.projectavengers.models.Movies;
 
 public interface MoviesTowerRepository extends JpaRepository<Movies, Long>{
 
+	long getCountOfEntities();
+
 }
 
