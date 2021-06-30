@@ -6,6 +6,4 @@ import com.github.claudiaeduarda.projectavengers.models.Avengers;
 
 public interface AvengersTowerRepository extends JpaRepository<Avengers, Long>{
 
-	long getCountOfEntities();
-
 }

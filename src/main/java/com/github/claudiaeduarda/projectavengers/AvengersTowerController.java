@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.claudiaeduarda.projectavengers.models.Avengers;
@@ -29,20 +28,19 @@ public class AvengersTowerController {
 		return "avengerstower/formAvengersTower";
 	}
 	
-	@GetMapping("/AvengersTowerRepository")
+	@GetMapping("/list")
     public List<Avengers> Avengers() {
 		return atr.findAll();
 	}
 	
-	@GetMapping("/AvengersTowerRepository")
+	@GetMapping
 	public Avengers getAvengers(Long id){
         return atr.getById(id);
 	}
 	
-	@ResponseBody
 	@GetMapping
 	public long countAvengers() {
-		long count = atr.getCountOfEntities();
+		long count = atr.count();
 		return count;
 	}
 	
@@ -77,20 +75,19 @@ public class AvengersTowerController {
 		return "moviestower/formAvengersTowerMovies";
 	}
 	
-	@GetMapping("/MoviesTowerRepository")
+	@GetMapping("/list")
     public List <Movies> Movies() {
 		return mtr.findAll();
 	}
 	
-	@GetMapping("/MoviesTowerRepository")
+	@GetMapping
 	public Movies getMovies(Long id){
         return mtr.getById(id);
     }
 	
-	@ResponseBody
 	@GetMapping
 	public long countMovies() {
-		long count = mtr.getCountOfEntities();
+		long count = mtr.count();
 		return count;
 	}
 	
